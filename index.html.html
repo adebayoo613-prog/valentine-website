@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Hey My Beautiful Princess 💖</title>
+ <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Dancing+Script:wght@500&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+<style>
+:root {
+  --pink: #ff69b4;
+  --deep-pink: #c71585;
+  --soft-pink: #ffb6c1;
+  --bg: linear-gradient(135deg, #fff0f5 0%, #ffe4e1 90%);
+}
+
+html {
+  font-size: 16px;
+}
+
+@media (max-width: 600px) {
+  html {
+    font-size: 18px;
+  }
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  font-family: 'Playfair Display', serif;
+  background: linear-gradient(135deg, #ffe6f0, #fff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+}
+
+.page {
+  display: none;
+  text-align: center;
+  animation: fadeIn 1s ease;
+  width: 100%;
+}
+
+.page.active {
+  display: block;
+}
+
+.box {
+  background: white;
+  padding: 35px 30px;
+  border-radius: 24px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.18);
+  max-width: 540px;
+  width: 90%;
+  margin: 20px auto;
+}
+
+h1, p {
+  color: #ec407a;
+}
+
+.page p {
+  font-size: 1.4rem;
+  line-height: 1.55;
+  margin-bottom: 1.5rem;
+}
+
+.btn {
+  margin-top: 1.8rem;
+  padding: 0.9rem 2.5rem;
+  font-size: 1.6rem;
+  border: none;
+  border-radius: 50px;
+  background: var(--deep-pink);
+  color: white;
+  cursor: pointer;
+  transition: transform 0.25s, box-shadow 0.25s;
+  font-family: 'Dancing Script', cursive;
+}
+
+.btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 25px rgba(199,21,133,0.4);
+}
+
+.yes-btn {
+  background: #2e7d32;
+}
+
+.no-btn {
+  background: #c62828;
+}
+
+.choices {
+  margin-top: 2.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  flex-wrap: wrap;
+  position: relative;
+  min-height: 100px;
+}
+
+.big-heart {
+  font-size: 10rem;
+  animation: beat 1.2s infinite;
+  margin: 0.8rem 0 1.5rem;
+}
+
+.yes-msg {
+  font-size: 2.2rem;
+  color: #d81b60;
+  margin-top: 2rem;
+}
+
+#noText {
+  font-size: 1.9rem;
+  color: #ad1457;
+  margin-top: 2rem;
+  min-height: 3rem;
+}
+
+.heart {
+  position: fixed;               /* changed to fixed so they cover whole viewport */
+  top: -10vh;                    /* start above the screen */
+  pointer-events: none;          /* can't click them */
+  z-index: -1;                   /* behind content — change to 999 if you want on top */
+  animation: fall linear infinite;
+  will-change: transform;        /* smoother performance */
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-10vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(120vh) rotate(720deg);  /* full spin for fun */
+    opacity: 0;
+  }
+}
+
+/* Your existing @keyframes stay the same */
+
+@media (max-width: 600px) {
+  .box {
+    padding: 25px 20px;
+    width: 94%;
+  }
+
+  h1 {
+    font-size: 2.6rem;
+  }
+
+  .page p {
+    font-size: 1.45rem;
+  }
+
+  .big-heart {
+    font-size: 7rem;
+  }
+
+  .btn {
+    font-size: 1.55rem;
+    padding: 0.9rem 2.8rem;
+  }
+
+  .choices {
+    flex-direction: column;
+    gap: 35px;
+    margin-top: 3rem;
+  }
+
+  .yes-btn, .no-btn {
+    width: 85%;
+    max-width: 280px;
+  }
+
+  #noText {
+    font-size: 1.8rem;
+  }
+}
+</style>
+</head>
+<body>
+
+  <!-- Page 1 -->
+  <div class="page active" id="page1">
+    <div class="box">
+      <div class="mailbox">💖</div>
+      <h1>Hey My Beautiful Princess</h1>
+      <button class="btn" onclick="nextPage()">Click Me, You have a mail 💌</button>
+    </div>
+  </div>
+
+  <!-- Page 2 -->
+  <div class="page" id="page2">
+    <div class="box">
+      <p>You make me smile every single day and fill my heart with so much joy...</p>
+      <button class="btn" onclick="nextPage()">Click Me</button>
+    </div>
+  </div>
+
+  <!-- Page 3 -->
+  <div class="page" id="page3">
+    <div class="box">
+      <p>Every moment spent with you is a memory I don't want to ever forget</p>
+      <button class="btn" onclick="nextPage()">Click Me</button>
+    </div>
+  </div>
+
+  <!-- Page 4 -->
+  <div class="page" id="page4">
+    <div class="box">
+      <p>So I have a Question</p>
+      <button class="btn" onclick="nextPage()">Click Me</button>
+    </div>
+  </div>
+
+  <!-- Page 5 -->
+  <div class="page" id="page5">
+    <div class="box">
+      <div class="big-heart">❤️</div>
+      <p style="font-family: cursive; font-size: 22px;">
+        Will you be my valentine my beautiful princess?<br>
+        <small>(I promise to make you smile and happy)</small>
+      </p>
+
+    <div class="choices">
+  <button class="btn yes-btn" id="yesBtn" onclick="yesClicked()">YES</button>
+  <button class="btn no-btn" id="noBtn" onclick="noClicked()">NO</button>
+</div>
+
+      <p id="noText" style="margin-top:15px; color:#ad1457;"></p>
+    </div>
+  </div>
+
+  <script>
+let currentPage = 1;
+let noCount = 0;
+const noMessages = [
+  "Are you sure? 😔",
+  "Are you really sure? 🥺",
+  "I will be very sad... 💔",
+  "You're reducing my heart to pieces babyyyyy 😭",
+  "CLICK YESSSSSSSS!!! ❤️🔥"
+];
+
+function nextPage() {
+  const current = document.getElementById(`page${currentPage}`);
+  if (current) current.classList.remove('active');
+
+  currentPage++;
+
+  const next = document.getElementById(`page${currentPage}`);
+  if (next) next.classList.add('active');
+}
+
+// ──── Improved falling hearts ──────
+function createHeart() {
+  const heart = document.createElement('div');
+  heart.className = 'heart';
+  heart.innerText = ['💖','💗','💕','❤️','💞','💘'][Math.floor(Math.random()*6)];
+  
+  heart.style.left = Math.random() * 100 + 'vw';
+  heart.style.fontSize = (Math.random() * 1.8 + 1.2) + 'rem';  // better scaling
+  heart.style.animationDuration = (Math.random() * 5 + 5) + 's'; // 5–10s fall
+  heart.style.animationDelay = Math.random() * 3 + 's';           // stagger start
+  
+  document.body.appendChild(heart);
+  
+  // Clean up
+  setTimeout(() => {
+    if (heart.parentNode) heart.parentNode.removeChild(heart);
+  }, 12000);
+}
+
+// Initial burst
+for (let i = 0; i < 30; i++) {
+  setTimeout(createHeart, i * 180);
+}
+
+// Continuous rain
+setInterval(createHeart, 350);
+
+function noClicked() {
+  const noBtn = document.getElementById('noBtn');
+  const yesBtn = document.getElementById('yesBtn');
+  const noText = document.getElementById('noText');
+  
+  if (noCount < noMessages.length) {
+    noText.innerText = noMessages[noCount];
+  }
+  noCount++;
+
+  yesBtn.style.transform = `scale(${1 + noCount * 0.25})`;
+  yesBtn.style.padding = `${18 + noCount * 4}px ${50 + noCount * 8}px`;
+
+  const x = Math.random() * 220 - 110;
+  const y = Math.random() * 160 - 80;
+  noBtn.style.transform = `translate(${x}px, ${y}px) scale(0.9)`;
+
+  if (noCount >= 5) {
+    noBtn.style.opacity = '0';
+    noBtn.style.pointerEvents = 'none';
+    setTimeout(() => noBtn.style.display = 'none', 600);
+  }
+}
+function yesClicked() {
+  // Clear the page properly
+  document.body.innerHTML = `
+    <div style="
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      background:linear-gradient(135deg,#ffe6f0,#fff);
+      text-align:center;
+      font-family:'Dancing Script', cursive;
+    ">
+      <h1 style="font-size:3rem;color:#d81b60;">Yayyy!!! 💖</h1>
+      <p style="font-size:2rem;color:#ad1457;margin-top:1rem;">
+        I love you so much my Queen 💕
+      </p>
+    </div>
+  `;
+
+  // Heart explosion AFTER HTML is rendered
+  for (let i = 0; i < 80; i++) {
+    setTimeout(() => {
+      const love = document.createElement('div');
+      love.innerText = '💖';
+      love.style.position = 'fixed';
+      love.style.left = Math.random() * 100 + 'vw';
+      love.style.top = '-10vh';
+      love.style.fontSize = '3rem';
+      love.style.animation = 'fall 4s linear forwards';
+      love.style.pointerEvents = 'none';
+      love.style.zIndex = '9999';
+      document.body.appendChild(love);
+      setTimeout(() => love.remove(), 4000);
+    }, i * 50);
+  }
+}
+
+</script>
+</body>
+</html>
